@@ -1,30 +1,46 @@
-import React,{useEffect, useState} from 'react';
+import React,{useEffect, useState, useRef} from 'react';
 // import {FaWhatsappSquare, FaSearch, FaWhatsapp} from 'react-icons/fa'
 import {ImArrowRight} from 'react-icons/im'
 import {RiWhatsappFill} from 'react-icons/ri'
 import "../styles/Right.css"
 
 const Right = ({profileIdx, person}) => {
-    
-    // const [person, setperson] = useState({});
 
-    // const getdata=(profileIdx)=>{
-    //   if(profileIdx==null){
-    //     return null
-    //   }
-    //   else{
-    //     let personDetails = JSON.parse(localStorage.getItem("data"))[profileIdx]
-    //     setperson(personDetails)
-    //   }
-    // }
-
-    // useEffect(() => {
-        
-
-    // }, [profileIdx]);
-
+  const ref = useRef(null); //used for scrolling
+  const [inputVal, setinputVal] = useState("");
+  
+  useEffect(()=>{      // use for scrolling messages
+    if(ref.current){
+      ref.current.scrollIntoView({ behavior: 'smooth' })
+    };
+  })
   
 
+
+   const sendingMsg=()=>{
+
+    if(inputVal!==""){
+      let MsgFormat={
+      message : "",
+      from: ""
+    }
+    
+    MsgFormat.message=inputVal;
+    MsgFormat.from='me';
+    // console.log( (person));
+    person.messages.push(MsgFormat);
+
+    let allData =JSON.parse(localStorage.getItem('data'));
+
+    allData.map(data=>data.id===profileIdx ? data.messages=person.messages :data.messages=data.messages)
+
+    localStorage.setItem('data', JSON.stringify(allData))   //updating database with latest messages
+    setinputVal("")
+    }
+
+   }
+
+  
   return (
     <div className={`right ${profileIdx===null ? 'section' : 'rightsection'}`}>
       {profileIdx===null ? 
@@ -35,8 +51,7 @@ const Right = ({profileIdx, person}) => {
         <div>
           <h2 style={{fontSize:50, textAlign:'center', color: 'white'}}>Click on Chats to see messages</h2>
         </div>
-      </div>
-      
+      </div>    
       : 
         <>
           <div className='profileTag'>
@@ -49,16 +64,16 @@ const Right = ({profileIdx, person}) => {
 
           <div className='messagebox '>
               {person.messages.map((message)=>{
-                return <><div className='message' style={{float:`${message.from=='self' ? 'left' : 'right'}` }}>{message.message}</div><br /><br/></>
+                return <><div className='message' style={{float:`${message.from=='self' ? 'left' : 'right'}` }}>{message.message}</div><div ref={ref} /><br /><br/></>
               })}
           </div>
           
           <div className='sendMessage'>
             <div className='input'>
-              <input type="text" placeholder='Type here to send messages...'/>
+              <input type="text" placeholder='Type here to send messages...' value={inputVal} onChange={(e)=> setinputVal(e.target.value)}/>
             </div>
             
-            <div className='sendIconDiv'>
+            <div className='sendIconDiv' onClick={sendingMsg}>
               <ImArrowRight id='sendIcon'/>
             </div>
 

@@ -12,11 +12,14 @@ const App = () => {
   const [person, setPerson] = useState({})
 
   const gettingMsg=(idx, e)=>{
+    console.log(idx);
     setprofileIdx(idx)
-    setPerson((JSON.parse(localStorage.getItem('data'))[idx]))
+    const data= JSON.parse(localStorage.getItem('data')).filter(person=> person.id===idx)
+    console.log(data[0]);
+     setPerson(data[0])
 
     const profileCardClasss= document.getElementsByClassName("profileCard")
-    console.log(profileCardClasss);
+    // console.log(profileCardClasss);
     for(let i=0; i<profileCardClasss.length; i++){
       profileCardClasss[i].style.backgroundColor="#0f2e03"
       profileCardClasss[i].children[2].style.color='white'

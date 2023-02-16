@@ -16,6 +16,10 @@
 
 }
 
+.left input:focus{
+    outline:none;
+}
+
 .left .searchBar{
     margin: 10px;
     width: 290px;

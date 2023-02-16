@@ -5,16 +5,29 @@ import "../styles/Left.css"
 const Left = ({people, gettingMsg}) => {
     const [searchPerson, setsearchPerson] = useState("");
 
-    // const handleClick=(idx, e)=>{         
-    
 
-    // }
-
-
-    const handleSearch=(e)=>{
+    const handleSearch=(e)=>{      //Searching person
       setsearchPerson(e.target.value);
     }
 
+    const notificationCount=(messages)=>{
+      let count=0;
+      
+        for(let i= messages.length-1; i>=0; i--){
+          let status=(messages[i].from);
+         
+          if(status==='self'){
+            count= count+1;
+            
+          }else{
+            return count;
+          }
+          
+        }
+
+    }
+
+   
     
 
   return (
@@ -36,16 +49,23 @@ const Left = ({people, gettingMsg}) => {
               }
             }).map((person, idx)=>{
               return (
-                  <div className='profileCard' onClick={(e)=> gettingMsg(idx,e)} key={idx} id={idx}>
+                  <div className='profileCard' onClick={(e)=> gettingMsg(person.id,e)} key={idx} id={person.id}>
                       <div id='profilePic'>
                         <img src={person.profilePic} alt="" />
                       </div>
 
                       <h3>{person.name}</h3>
 
-                      <div className="notificationEnable" >
-                          {   person.messages.length}
+                      {notificationCount(person.messages)===0?
+                      
+                      <div className="notificationEnable"  style={{visibility:'hidden'}}>
+                          {notificationCount(person.messages)}
                       </div>
+                      
+                      :
+                      <div className="notificationEnable" >
+                          {notificationCount(person.messages)}
+                      </div>}
 
                   </div>
               )
