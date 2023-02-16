@@ -1,0 +1,101 @@
+.right{
+    width: 420px;
+    margin-right: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.right .callicon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    
+
+}
+
+.right.rightsection{
+  background-color: #0f2e03;
+  height: 450px;
+}
+
+.profileTag{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #1a5a00;
+    overflow:inherit;
+    border-radius: 20px;
+    border: 2px solid black;
+    /* width: 100px; */
+}
+.profileTag h3{
+    color: white;
+}
+
+.messagebox{
+    /* display: flex; */
+    /* flex-direction: column; */
+    height: 340px;
+}
+
+.messagebox .message{
+    background-color:#1a5a00;
+     color: white ;
+     clear: both;
+     padding: 10px;
+     margin: 10px;
+     border-radius: 10px;
+}
+
+.sendMessage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.sendMessage .input{
+    width: 340px;
+    /* text-align: center; */
+    
+    height: 45px;
+    background-color: #d8d8d9;
+    border: 2px solid black;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sendMessage .input input{
+    height: 35px;
+    width: 250px;
+    background-color: inherit;
+    border: none;
+}
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #232322;
+    opacity: 1; /* Firefox */
+  }
+
+
+.sendIconDiv{
+    background-color: #d8d8d9;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #1a5a00;
+}
+
+#sendIcon{
+    width: 30px;
+    height: 40px;
+}
+

@@ -1,0 +1,98 @@
+.section{
+    background-color: #1a5a00;
+    height: 450px;
+}
+
+.left{
+    width: 320px;
+    margin-left: 20px;
+    border-radius: 20px;
+}
+
+.left input{
+   width: 235px;
+   background-color: transparent;
+   border: none;
+
+}
+
+.left .searchBar{
+    margin: 10px;
+    width: 290px;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid black;
+    background-color: #d9d8d8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#searchIcon{
+    
+    color: #d9d8d8;
+}
+
+#searchIconDiv{
+    margin-left: 5px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+
+}
+
+.profileCard{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 290px;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: #0f2e03;
+
+} 
+
+.profileCard h3{
+    color: white;
+}
+
+.profileCard .notificationEnable{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #7fd956;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    color: white;
+}
+
+.profileCard .notificationDisable{
+    visibility: hidden;
+
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+
+    
+}
+
+#profilePic{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left:10px ;
+    
+}
+
+#profilePic img{
+    width: 100%;
+    height: 100%;
+}
