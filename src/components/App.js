@@ -14,9 +14,11 @@ const App = () => {
   const gettingMsg=(idx, e)=>{
     console.log(idx);
     setprofileIdx(idx)
-    const data= JSON.parse(localStorage.getItem('data')).filter(person=> person.id===idx)
-    console.log(data[0]);
-     setPerson(data[0])
+    const data= JSON.parse(localStorage.getItem('data'))
+    // .filter(person=> person.id===idx)
+    const personData= data == null ? "" : data.filter(person=> person.id===idx)   // handel null error
+    console.log(personData[0]);
+     setPerson(personData[0])
 
     const profileCardClasss= document.getElementsByClassName("profileCard")
     // console.log(profileCardClasss);

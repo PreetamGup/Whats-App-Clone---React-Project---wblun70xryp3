@@ -41,7 +41,9 @@ const Left = ({people, gettingMsg}) => {
         </div>
 
         <div className='people'>
-            {people.filter(search=>{
+            { people==null ? "" :   //handle null error
+            
+            people.filter(search=>{
               if(searchPerson==""){
                 return search
               }else if((search.name.toLowerCase()).includes((searchPerson.toLowerCase()))){
