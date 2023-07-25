@@ -49,7 +49,7 @@ const Right = ({profileIdx, person}) => {
           <RiWhatsappFill style={{width : 90, height:90, color:'#0f2e03'}}/>
 
         <div>
-          <h2 style={{fontSize:50, textAlign:'center', color: 'white'}}>Click on Chats to see messages</h2>
+          <h2 style={{fontSize:50, textAlign:'center', color: 'white'}}>Click on Profile to see messages</h2>
         </div>
       </div>    
       : 

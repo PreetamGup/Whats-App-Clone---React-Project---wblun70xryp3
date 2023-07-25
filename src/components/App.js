@@ -40,8 +40,9 @@ const App = () => {
 
   return (
     <div id="main">
+      <h2>Reload Website If Data is not visible</h2>
       <div className='container'>
-
+      
       <Left gettingMsg={gettingMsg} people={JSON.parse(localStorage.getItem('data'))}/>
       <Right gettingMsg={gettingMsg} profileIdx={profileIdx} person={person}/>
 
